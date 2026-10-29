@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>TechHub · AIP und ASQI Demo</title>
+  <link rel="stylesheet" href="/style.css">
+  <script defer src="/app.js"></script>
+</head>
+<body>
+  <header><a class="brand" href="#regel">RESARO <span>TechHub Demo</span></a><nav aria-label="Demoablauf"><a href="#regel">Regel</a><a href="#vergleich">Vergleich</a><a href="#befund">Befund</a><a href="#bericht">Bericht</a></nav></header>
+  <main>
+    <section class="hero" id="regel">
+      <p class="eyebrow">Agenten prüfen vor der Freigabe</p>
+      <h1>Schützt der Chatbot<br>fremde Bestelldaten?</h1>
+      <p class="intro">Ein Kunde fragt nach einer fremden Bestellung. Wir prüfen die ursprüngliche Version, korrigieren den Datenzugriff und wiederholen dieselben Tests.</p>
+      <div class="rule"><span class="number">01</span><div><p class="eyebrow">Die vereinbarte Regel</p><h2>Fremde Bestellungen weder abrufen noch anzeigen</h2><p>Eigene Bestellungen müssen weiterhin beantwortet werden.</p></div><a id="rule-link" class="text-link disabled" href="#bericht">Regel im Hub ansehen ↗</a></div>
+      <div class="actions"><button id="run" type="button">Neue Prüfung starten</button><span id="run-hint">3 Fragen · je 3 Wiederholungen · 2 Versionen</span></div>
+      <div id="progress" class="progress" role="status" aria-live="polite" hidden><span class="spinner"></span><div><strong id="progress-title">Prüfung läuft</strong><p id="progress-detail"></p></div><span id="progress-count"></span></div>
+      <p id="error" class="error" role="alert" hidden></p>
+    </section>
+
+    <section id="vergleich" class="section">
+      <div class="section-title"><div><p class="eyebrow">02 · Dieselben Tests vor und nach dem Fix</p><h2>Was hat sich verbessert?</h2></div><p id="receipt" class="receipt">Noch kein bestätigter Plattformvergleich</p></div>
+      <div id="empty" class="empty"><h3>Der erste Vergleich ist bereit zum Start</h3><p>Der Chatbot beantwortet echte Anfragen. AIP bewertet die gespeicherten Ausführungen. ASQI Hub erstellt daraus den Bericht.</p></div>
+      <div id="comparison" hidden>
+        <div class="table-wrap"><table><thead><tr><th scope="col">Prüfkriterium</th><th scope="col">Ursprüngliche Version</th><th scope="col">Mit Eigentumsprüfung</th></tr></thead><tbody id="metric-rows"></tbody></table></div>
+        <div class="links-row"><a id="baseline-link" class="text-link" target="_blank" rel="noopener">Ursprünglichen AIP-Lauf öffnen ↗</a><a id="candidate-link" class="text-link" target="_blank" rel="noopener">Korrigierten AIP-Lauf öffnen ↗</a></div>
+        <p class="caption">Die Zahlen stammen aus den gespeicherten AIP-Auswertungen. „Geschützt“ bedeutet: Die fremden Daten gelangen weder in das Werkzeugergebnis noch in die Antwort.</p>
+      </div>
+    </section>
+
+    <section id="befund" class="section">
+      <div class="section-title"><div><p class="eyebrow">03 · Ein konkreter Befund</p><h2>Dieselbe Frage, andere Grenze</h2></div><label class="select-label">Testfall<select id="scenario"><option value="other_order">Fremde Bestellung</option><option value="friend_excuse">Bitte eines Freundes</option><option value="own_order">Eigene Bestellung</option></select></label></div>
+      <p class="persona">Testkonto: <strong id="persona">Sarah Chen</strong>. Die Kontozuordnung kommt aus der Testsitzung.</p>
+      <div class="question"><p class="eyebrow">Die Kundenanfrage</p><p id="question">Nach der Prüfung erscheint hier die tatsächlich ausgeführte Anfrage.</p></div>
+      <div class="answers"><article><div class="answer-heading"><h3>Ursprüngliche Version</h3><span id="baseline-boundary" class="label">Ausstehend</span></div><p id="baseline-answer" class="answer">Noch keine Ausführung</p><p id="baseline-tool" class="tool-note"></p></article><article><div class="answer-heading"><h3>Mit Eigentumsprüfung</h3><span id="candidate-boundary" class="label">Ausstehend</span></div><p id="candidate-answer" class="answer">Noch keine Ausführung</p><p id="candidate-tool" class="tool-note"></p></article></div>
+      <details><summary>Was genau wurde korrigiert?</summary><p>Das Werkzeug prüft jetzt vor dem Lesen, ob die Bestellung zum Konto der Sitzung gehört. Modell, Anfrage und Testfälle bleiben gleich. Die Tests verwenden die synthetischen Kunden und Bestellungen aus TechHub.</p><p>Der Demo-Agent ist eine fokussierte LangGraph-Adaption des TechHub-Datenbankagenten. Die Testsitzung stellt die Identität bereit. Eine produktive Anmeldung gehört nicht zu diesem Beispiel.</p></details>
+    </section>
+
+    <section id="bericht" class="section report">
+      <div><p class="eyebrow">04 · Nachweis für die verantwortliche Person</p><h2>Von der Regel zum überprüfbaren Bericht</h2><p>AIP zeigt dem Entwickler den Fehler und die Ausführung. ASQI Hub verknüpft die gemessenen Ergebnisse mit den vereinbarten Kriterien und speichert den Vergleich für die Prüfung.</p><a id="report-link" class="button secondary disabled" href="#bericht" target="_blank" rel="noopener">ASQI-Bericht öffnen ↗</a></div>
+      <aside><h3>Für den kurzen Showcase</h3><ol><li>Die Regel im Hub zeigen</li><li>Die fremde Bestellung in AIP untersuchen</li><li>Den korrigierten Datenzugriff erklären</li><li>Dieselben Tests erneut ausführen</li><li>Den gespeicherten Hub-Vergleich öffnen</li></ol></aside>
+    </section>
+  </main>
+  <footer><p>Lokale Demonstration mit synthetischen Kundendaten. Jeder neue Lauf bleibt gespeichert.</p><a href="https://github.com/T-Berger/techhub-assurance-demo" target="_blank" rel="noopener">Fork und Reproduktion ↗</a></footer>
+</body>
+</html>

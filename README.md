@@ -1,4 +1,21 @@
-# Taming Agent Sprawl
+# TechHub: order privacy showcase
+
+**Can we release this chatbot update without exposing another customer's orders?**
+
+This fork adds a small, real LangGraph comparison to the original workshop. Run the same questions against two versions, evaluate their traces in AIP, and open a versioned ASQI Hub comparison report.
+
+```sh
+./demo setup
+./demo start
+```
+
+The local demo opens at **http://localhost:28145/**. Select **Neue Prüfung starten** to run the whole workflow. Each comparison keeps its model responses, trace files and platform receipts. The existing AIP and ASQI services must be available; their default local URLs are detected.
+
+See [showcase setup, evidence and presenter guide](showcase/README.md) for prerequisites, the exact authorization change, verification, and the limits of the example. All original workshop agent files remain unchanged.
+
+---
+
+# Original workshop: Taming Agent Sprawl
 
 Workshop material for *Taming Agent Sprawl: How we scale evals to keep up with agents*.
 

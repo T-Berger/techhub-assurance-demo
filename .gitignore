@@ -7,3 +7,5 @@ traces/*.json
 traces/scenarios/
 .DS_Store
 evals/framework/out/
+.showcase/
+.pytest_cache/

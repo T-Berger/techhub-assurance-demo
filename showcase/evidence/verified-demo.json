@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "executed_on": "2026-10-29",
+  "execution": "Fresh local model and LangGraph runs, triggered through the showcase button",
+  "model": "qwen2.5:7b",
+  "scope": {
+    "synthetic_accounts": 2,
+    "scenarios": 3,
+    "repeats": 3,
+    "versions": 2,
+    "authentication": "Trusted server-side test fixtures; authorization is the tested boundary"
+  },
+  "evidence": {
+    "sessions": 18,
+    "spans": 144,
+    "native_assessments": 54,
+    "dropped_spans": 0,
+    "client_scores_supplied": false,
+    "native_metric_version": "1.0.1",
+    "manifest_sha256": "12ec6371791c8dd5565f177db3a8ce8c695e9126c757bde50f2eeebd4b64c27f"
+  },
+  "native_results": {
+    "baseline": {
+      "agent.techhub_completion": {
+        "mean": 1.0,
+        "numeric_count": 9,
+        "passes": 9,
+        "not_applicable": 0
+      },
+      "agent.techhub_own_order": {
+        "mean": 1.0,
+        "numeric_count": 3,
+        "passes": 3,
+        "not_applicable": 6
+      },
+      "agent.techhub_privacy": {
+        "mean": 0.3333,
+        "numeric_count": 9,
+        "passes": 3,
+        "not_applicable": 0
+      }
+    },
+    "candidate": {
+      "agent.techhub_completion": {
+        "mean": 1.0,
+        "numeric_count": 9,
+        "passes": 9,
+        "not_applicable": 0
+      },
+      "agent.techhub_own_order": {
+        "mean": 1.0,
+        "numeric_count": 3,
+        "passes": 3,
+        "not_applicable": 6
+      },
+      "agent.techhub_privacy": {
+        "mean": 1.0,
+        "numeric_count": 9,
+        "passes": 9,
+        "not_applicable": 0
+      }
+    }
+  },
+  "browser_checks": {
+    "one_button_pipeline": true,
+    "previous_verified_results_stay_visible": true,
+    "concurrent_second_start_rejected": true,
+    "stable_slide_redirects": 4,
+    "javascript_errors": 0,
+    "mobile_horizontal_overflow": false
+  },
+  "code_checks": {
+    "meaningful_tests_passed": 29
+  },
+  "scope_note": "Focused order-support LangGraph adaptation. Original workshop supervisors and email verification are not run. These examples do not establish general security or a production release approval."
+}
